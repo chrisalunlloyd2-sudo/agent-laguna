@@ -1,0 +1,10 @@
+# Agent Laguna
+__pycache__/
+*.pyc
+*.pyo
+*.pid
+*.log
+*.db
+.agent_laguna/
+__pycache__/
+tests/__pycache__/

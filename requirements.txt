@@ -1,0 +1,2 @@
+# Agent Laguna — stdlib-only, no external dependencies
+# All modules use Python 3 standard library only
