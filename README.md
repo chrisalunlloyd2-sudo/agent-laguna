@@ -17,16 +17,17 @@ Agent Laguna is a stdlib-only Python agent that runs daily cycles, processing:
 
 ```
 agent-laguna/
-├── agent.py              # Main orchestrator — daily loop, phases 1-4
-├── hexflow_contract.py   # Hexagonal flow vector processor (shuttle engine integration)
-├── daily_task.py         # Daily personalized task runner
-├── self_improve.py       # 1 self-improvement step/day (Scientific Method)
-├── hounty.py             # Reward/point system with streaks + achievements
-├── requirements.txt      # stdlib-only (no external deps)
-├── VERSION               # Version string
+├── agent.py                    # Main orchestrator — daily loop, phases 0-4
+├── hexflow_contract.py         # Hexagonal flow vector processor (shuttle engine)
+├── daily_task.py               # Daily personalized task runner
+├── self_improve.py             # 1 self-improvement step/day (Scientific Method)
+├── hounty.py                   # Reward/point system with streaks + achievements
+├── github_integration.py       # GitHub issue/discussion management + heartbeat
+├── requirements.txt            # stdlib-only (no external deps)
+├── VERSION                     # Version string
 ├── .gitignore
 └── tests/
-    └── test_agent.py     # Test suite
+    └── test_agent.py           # Test suite
 ```
 
 ## Integration Points
@@ -39,6 +40,7 @@ agent-laguna/
 | Gem Library | `~/.matrix_ide/gem_library/` | Snippet harvesting |
 | Heartbeat Tasks | `~/heartbeat/tasks/*.task` | NOVA_JOB task manifests |
 | Gist Contents | `~/gist_contents/` | Fetched gist storage |
+| GitHub API | Agent's own repo `chrisalunlloyd2-sudo/agent-laguna` | Issue creation, comments, sync |
 
 ## Usage
 
@@ -52,12 +54,40 @@ python agent.py daily
 # Run continuously (24h interval)
 python agent.py loop
 
+# Run in background as a daemon
+nohup python3 agent.py loop 24 > ~/.agent_laguna/logs/heartbeat.log 2>&1 &
+
 # Check status
 python agent.py status
 
-# Run tests
-python -m pytest tests/ -v
+# GitHub integration commands
+python agent.py github summary    # Show issue summary
+python agent.py github sync        # Sync open issues to inbox
+python agent.py github create <title> <body>  # Create new issue
+python agent.py github list        # List open issues
+
+# Direct module usage
+python3 hexflow_contract.py cycle    # Run hexflow cycle
+python3 daily_task.py cycle          # Run daily task processing
+python3 self_improve.py run          # Run self-improvement
+python3 hounty.py balance            # Check hounty balance
+python3 github_integration.py status  # Check GitHub issue status
+python3 github_integration.py sync   # Sync issues to inbox
 ```
+
+## GitHub Integration
+
+The GitHub heartbeat (Phase 0 + Phase 4 of the daily cycle) enables:
+
+| Feature | Description |
+|---------|-------------|
+| **Issue Sync** | Open task-labeled issues from GitHub are synced into the Aegis inbox (`aegis_qwen_inbox.json`) |
+| **Daily Issues** | Each daily cycle creates a summary issue in `chrisalunlloyd2-sudo/agent-laguna` |
+| **Self-Improvement Log** | Self-improvement steps are posted as comments on a tracking issue |
+| **Task Issues** | Daily tasks are converted to GitHub issues with hounty labels |
+| **Controls** | Close, label, and comment on issues programmatically via `gh` CLI |
+
+**Requirements:** `gh` CLI authenticated (`gh auth status`)
 
 ## Hounty Awards
 
@@ -88,6 +118,10 @@ python -m pytest tests/ -v
 ┌─────────────────────────────────────────────────┐
 │ Agent Laguna Daily Cycle                        │
 ├─────────────────────────────────────────────────┤
+│ 0. GitHub Heartbeat                            │
+│    → Sync issues to inbox                      │
+│    → Create daily summary issue                │
+├─────────────────────────────────────────────────┤
 │ 1. Hexflow Contract Processing                  │
 │    → Load SHUTTLE.json                          │
 │    → Process active task through hex stages     │
@@ -107,10 +141,10 @@ python -m pytest tests/ -v
 │    → COMPARE + KEEP/REVERT                     │
 │    → REDO if not satisfied                      │
 ├─────────────────────────────────────────────────┤
-│ 4. Hounty Tracking                              │
+│ 4. Hounty Tracking + GitHub Posting             │
 │    → Record points earned                       │
+│    → Post results to GitHub issues              │
 │    → Check for new achievements                 │
-│    → Persist daily result                       │
 └─────────────────────────────────────────────────┘
 ```
 

@@ -14,6 +14,7 @@ import hounty
 import self_improve
 import hexflow_contract
 import daily_task
+import github_integration as gh
 
 
 def _reset_hounty():
@@ -120,6 +121,18 @@ def test_daily_task_cycle():
     print("✓ test_daily_task_cycle passed")
 
 
+def test_github_integration_import():
+    """Test that GitHub integration module imports and has expected functions."""
+    assert hasattr(gh, "create_issue")
+    assert hasattr(gh, "comment_on_issue")
+    assert hasattr(gh, "list_issues")
+    assert hasattr(gh, "close_issue")
+    assert hasattr(gh, "sync_issues_to_inbox")
+    assert hasattr(gh, "create_issue_from_task")
+    assert hasattr(gh, "issue_summary")
+    print("✓ test_github_integration_import passed")
+
+
 if __name__ == "__main__":
     test_hounty_award()
     test_hounty_balance()
@@ -129,4 +142,5 @@ if __name__ == "__main__":
     test_gem_classification()
     test_hounty_achievements()
     test_daily_task_cycle()
+    test_github_integration_import()
     print("\n✅ All tests passed!")
