@@ -1,0 +1,64 @@
+{
+  "total_points": 160,
+  "current_streak": 1,
+  "last_active": "2026-10-06",
+  "achievements": [
+    {
+      "name": "first_drop",
+      "description": "First hounty drop \u2014 dipped your toe in the lagoon",
+      "ts": "2026-10-06T15:07:34+00:00"
+    },
+    {
+      "name": "honey_pot",
+      "description": "Honey pot \u2014 100 points accumulated",
+      "ts": "2026-10-06T15:07:34+00:00"
+    }
+  ],
+  "ledger": [
+    {
+      "ts": "2026-10-06T15:07:34+00:00",
+      "date": "2026-10-06",
+      "reason": "self_improvement_step",
+      "category": "self_improve",
+      "base_points": 30,
+      "streak_bonus": 10,
+      "total_awarded": 40
+    },
+    {
+      "ts": "2026-10-06T15:07:34+00:00",
+      "date": "2026-10-06",
+      "reason": "self_improvement_step",
+      "category": "self_improve",
+      "base_points": 30,
+      "streak_bonus": 0,
+      "total_awarded": 30
+    },
+    {
+      "ts": "2026-10-06T15:07:34+00:00",
+      "date": "2026-10-06",
+      "reason": "self_improvement_step",
+      "category": "self_improve",
+      "base_points": 30,
+      "streak_bonus": 0,
+      "total_awarded": 30
+    },
+    {
+      "ts": "2026-10-06T15:07:34+00:00",
+      "date": "2026-10-06",
+      "reason": "self_improvement_step",
+      "category": "self_improve",
+      "base_points": 30,
+      "streak_bonus": 0,
+      "total_awarded": 30
+    },
+    {
+      "ts": "2026-10-06T15:07:34+00:00",
+      "date": "2026-10-06",
+      "reason": "self_improvement_step",
+      "category": "self_improve",
+      "base_points": 30,
+      "streak_bonus": 0,
+      "total_awarded": 30
+    }
+  ]
+}
