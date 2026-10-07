@@ -176,6 +176,15 @@ def execute_self_improvement() -> dict:
     }
 
     _record_step(entry)
+
+    # Award hounty points for completing a self-improvement step
+    try:
+        import hounty as _hounty
+        if hasattr(_hounty, "award_self_improvement"):
+            _hounty.award_self_improvement()
+    except Exception:
+        pass
+
     print(f"  🧬 Self-improvement [{area}]: {verdict} — {note}")
     return entry
 

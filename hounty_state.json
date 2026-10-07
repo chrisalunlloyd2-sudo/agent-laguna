@@ -1,7 +1,7 @@
 {
-  "total_points": 160,
-  "current_streak": 1,
-  "last_active": "2026-10-06",
+  "total_points": 210,
+  "current_streak": 2,
+  "last_active": "2026-10-07",
   "achievements": [
     {
       "name": "first_drop",
@@ -59,6 +59,15 @@
       "base_points": 30,
       "streak_bonus": 0,
       "total_awarded": 30
+    },
+    {
+      "ts": "2026-10-07T15:40:04+00:00",
+      "date": "2026-10-07",
+      "reason": "self_improvement_step",
+      "category": "self_improve",
+      "base_points": 30,
+      "streak_bonus": 20,
+      "total_awarded": 50
     }
   ]
 }
