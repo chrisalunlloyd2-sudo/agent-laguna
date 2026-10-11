@@ -1,0 +1,6 @@
+[
+ {"id":"T001","text":"aria-swarm: changelog drift check on feature-pages commit","salience":0.88,"source":"hexflow","burst":true},
+ {"id":"T002","text":"kai-proxy-guard: py_compile sweep on agent.py triton_broker.py","salience":0.85,"source":"alice","burst":true},
+ {"id":"T003","text":"stale gists fetch from Sept","salience":0.08,"source":"chris"},
+ {"id":"T004","text":"glm-5.3 long: design next swarm cell builder improvement","salience":0.75,"source":"hexflow","burst":true}
+]

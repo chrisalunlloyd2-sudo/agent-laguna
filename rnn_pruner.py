@@ -85,6 +85,7 @@ class Governor:
         if os.path.exists(STATE):
             d = json.load(open(STATE)); self.rnn = ScalarRNN(); self.rnn.w_x = d["w_x"]; self.rnn.w_h = d["w_h"]
             self.rnn.w_y = d["w_y"]; self.rnn.b_y = d["b_y"]; self.rnn.h = d["h"]; self.hist = d["hist"]; self.stats = d["stats"]
+        self.ensure_rnn()
         return self
 
 if __name__ == "__main__":
