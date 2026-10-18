@@ -15,7 +15,11 @@ SEEDS = "/root/agent-laguna/sweep_seeds.json"  # burst todos appended by lane/ch
 
 def load_seeds():
     if os.path.exists(SEEDS):
-        try: return json.load(open(SEEDS))
+        try:
+            d = json.load(open(SEEDS))
+            if isinstance(d, dict):
+                d = d.get("seeds") or d.get("todos") or []
+            return [t for t in d if isinstance(t, dict) and "id" in t]
         except Exception: return []
     return []
 

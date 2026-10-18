@@ -1,6 +1,20 @@
 [
- {"id":"S1","text":"kai-proxy-guard: verify integration tests green post py_compile sweep T002","salience":0.8,"src":"hexflow"},
- {"id":"S2","text":"hexflow VERIFY stage: active_task 'Run full integration test and commit' — SHUTTLE triplet","salience":0.7,"src":"hexflow"},
- {"id":"S3","text":"AvatarAlive P35 spec: goal-driven autonomy loop, one ADD-only step","salience":0.6,"src":"alice"},
- {"id":"S4","text":"aria-swarm changelog T001 landed via glm-5.3 — pick next aria test-lane gap","salience":0.4,"src":"alice"}
+ {
+  "id": "T-hexflow-verify",
+  "src": "hexflow",
+  "salience": 0.86,
+  "text": "SHUTTLE hex_stage=VERIFY active_task='Run full integration test and commit' \u2014 add a deterministic integration gate to viper-scripts hexflow_server core path so VERIFY stage can close without a human."
+ },
+ {
+  "id": "T-hexflow-rejprune",
+  "src": "hexflow",
+  "salience": 0.72,
+  "text": "SHUTTLE rejections list is growing with repeated near-duplicate entries (build/run/test items) \u2014 add a rejection-dedup normalizer keyed on normalized task text so the board stops re-injecting dead items."
+ },
+ {
+  "id": "T-alice-boardgate",
+  "src": "alice",
+  "salience": 0.64,
+  "text": "guider_sweep board contract gate: enforce 1 push max per repo per cycle and receipt append-only ordering before any coder dispatch."
+ }
 ]
