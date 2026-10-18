@@ -22,6 +22,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from http.server import HTTPServer  # noqa: E402
 
 import hexflow_server  # noqa: E402
+import hexflow_contract  # noqa: E402
 
 
 class HexflowServerIntegrationTest(unittest.TestCase):
@@ -56,7 +57,8 @@ class HexflowServerIntegrationTest(unittest.TestCase):
         status, body = self._get("/status")
         self.assertEqual(status, 200)
         self.assertIsInstance(body, dict)
-        self.assertGreater(len(body), 0)
+        expected_keys = set(hexflow_contract.status().keys())
+        self.assertTrue(expected_keys.issubset(set(body.keys())))
 
     def test_inbox(self):
         status, body = self._get("/inbox")

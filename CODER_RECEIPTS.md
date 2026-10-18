@@ -11,3 +11,4 @@
 - alice authored instead (no API spend): tests/test_hexflow_server_integration.py — 4/4 PASS
   (GET /health 200 {'status':'ok'}, /status 200 dict, /inbox 200 list, unknown 404). ADD-only.
 - board: pruned=0 zeroed=2352, 3 seeds.
+- 2026-10-18T06:1xZ sweep slot1: qwen-oca (laguna) ran to 240s timeout, no chat output; its working-tree diffs reviewed by Alice: ascii_flow.render_board src/source key tolerance (fixes KeyError on seeds using "src") + tests/test_hexflow_server_integration.py now asserts hexflow_contract.status() keys subset (real contract gate, replaces len>0 tautology). Verified: 4/4 pass. Committed ADD-only.
