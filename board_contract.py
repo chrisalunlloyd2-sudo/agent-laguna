@@ -80,7 +80,7 @@ def check_dispatch(repo_heads: Dict[str, int], receipts_path: str) -> Dict[str, 
             low = line.lower()
             if not line.strip() or line.lstrip().startswith("#"):
                 continue
-            if any(t in low for t in toks) and "hounty=" not in low:
+            if any(t in low for t in toks) and not HCOUNTY_RE.search(low):
                 violations.append(f"C3 line {lineno}: repo receipt missing hounty=<8 hex>")
 
     return {"ok": not violations, "violations": violations}

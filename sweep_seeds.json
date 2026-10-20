@@ -1,20 +1,6 @@
-[
- {
-  "id": "T-hexflow-verify",
-  "src": "hexflow",
-  "salience": 0.86,
-  "text": "SHUTTLE hex_stage=VERIFY active_task='Run full integration test and commit' \u2014 add a deterministic integration gate to viper-scripts hexflow_server core path so VERIFY stage can close without a human."
- },
- {
-  "id": "T-hexflow-rejprune",
-  "src": "hexflow",
-  "salience": 0.72,
-  "text": "SHUTTLE rejections list is growing with repeated near-duplicate entries (build/run/test items) \u2014 add a rejection-dedup normalizer keyed on normalized task text so the board stops re-injecting dead items."
- },
- {
-  "id": "T-alice-boardgate",
-  "src": "alice",
-  "salience": 0.64,
-  "text": "guider_sweep board contract gate: enforce 1 push max per repo per cycle and receipt append-only ordering before any coder dispatch."
- }
-]
+{"seeds":[
+ {"id":"T1","text":"hexflow VERIFY dual_quaternion_advection: map H(x)D continuous advection to SHM offset 0x0040","salience":0.9,"src":"hexflow","burst":true},
+ {"id":"T2","text":"aria-swarm: classify test_skip_classification.py (untracked, 15p2s baseline) into gate or drop","salience":0.72,"src":"alice","burst":false},
+ {"id":"T3","text":"AvatarAlive P35 goal-driven autonomy loop: ONE spec step (ADD-only, P34 stays SEALED)","salience":0.8,"src":"chris","burst":false},
+ {"id":"T4","text":"kai-proxy-guard py_compile gate green; pytest collection blocked by missing fastapi in sandbox - mark env-skip not failure","salience":0.55,"src":"alice","burst":false}
+]}

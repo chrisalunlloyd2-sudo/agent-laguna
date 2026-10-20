@@ -38,7 +38,10 @@ def render_board(todos):
     for lane in LANES:
         for t in sorted([t for t in todos if t["lane"] == lane],
                         key=lambda t: (-t["salience"], t["id"])):
-            lines.append("| %-8s| %s %s s=%.2f src=%s" % (lane, t["id"], t["text"], t["salience"], t.get("source", t.get("src","?"))))
+            lines.append("| %-8s| %s %s s=%.2f src=%s" % (
+                lane, t.get("id", "?"), t.get("text", t.get("title", "<no text>")),
+                float(t.get("salience", 0.5)),
+                t.get("source", t.get("src", "?"))))
     return "\n".join(lines)
 
 def parse_board(board_text):

@@ -41,6 +41,12 @@ def test_missing_hounty_is_violation(tmp_path):
     rep = check_dispatch({"aria-swarm": 1}, rp)
     assert rep["ok"] is False
     assert any(v.startswith("C3") for v in rep["violations"])
+    # token present but malformed (not hounty=<8 hex>) is equally a violation
+    for bad in ("hounty=xyz", "hounty=deadbe", "hounty=deadbeef0"):
+        rp = _write(tmp_path, f"sweep: aria-swarm push {bad}\n")
+        rep = check_dispatch({"aria-swarm": 1}, rp)
+        assert rep["ok"] is False, bad
+        assert any(v.startswith("C3") for v in rep["violations"]), bad
 
 
 def test_enforce_raises(tmp_path):
